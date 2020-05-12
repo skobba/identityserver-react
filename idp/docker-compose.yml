@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  identityserver:
+    container_name: idp
+    hostname: idp
+    build:
+      context: ../idp/
+      dockerfile: IdentityServer/Dockerfile
+    image: ${DOCKER_REGISTRY-}identityserver
+    environment:
+      - TZ=Europe/Oslo
+      - ASPNETCORE_ENVIRONMENT=Development
+      # HTTP
+      - ASPNETCORE_URLS=http://+:80
+      # HTTPS
+      # - ASPNETCORE_URLS=https://+:443;http://+:80
+    expose:
+      - "80"
+    ports:
+      - "8080:80"
+    # HTTPS
+    #  - "8443:443"
+    # volumes:
+    #   - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    #   - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

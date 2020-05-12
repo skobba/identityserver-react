@@ -1,0 +1,15 @@
+.envrc
+
+# IDE files
+*.iml
+.DS_Store
+.idea
+
+# compilation targets
+node_modules
+
+# Dist
+dist
+
+# Lock
+package-lock.json

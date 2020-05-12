@@ -1,0 +1,6 @@
+window.env = {
+  HOSTNAME: '$HOSTNAME',
+  BACKEND: '$BACKEND',
+  STS_DOMAIN: '$STS_DOMAIN',
+  CLIENT_ID: '$CLIENT_ID',
+};

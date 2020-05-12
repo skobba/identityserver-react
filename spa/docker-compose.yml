@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  frontend:
+    container_name: spa
+    hostname: spa
+    build:
+      context: ../spa/
+      dockerfile: Dockerfile
+    image: identityserver-react/spa:latest
+    expose:
+      - "8100"
+    ports:
+      - 8101:8100
+    environment:
+      - HOSTNAME=http://localhost:8101
+      - BACKEND=http://localhost:3001
+      - STS_DOMAIN=http://localhost:8080
+      - CLIENT_ID=spa_code_client_docker
